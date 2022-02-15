@@ -26,6 +26,7 @@ package org.jetbrains.projector.common.protocol.toServer
 import kotlinx.serialization.Serializable
 import org.jetbrains.projector.common.protocol.data.*
 import org.jetbrains.projector.common.protocol.handshake.DisplayDescription
+import kotlin.js.JsExport
 
 enum class ResizeDirection {
   NW,
@@ -225,4 +226,12 @@ data class ClientWindowsActivationEvent(
 @Serializable
 data class ClientWindowsDeactivationEvent(
   val windowIds: List<Int>,
+) : ClientEvent()
+
+@Serializable
+@JsExport
+data class ClientJcefEvent(
+  val browserId: Int,
+  val functionName: String,
+  val data: String,
 ) : ClientEvent()

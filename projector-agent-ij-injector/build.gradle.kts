@@ -42,6 +42,7 @@ val intellijJcefVersion: String by project
 
 dependencies {
   implementation(project(":projector-agent-common"))
+  implementation(project(":projector-common"))
   implementation(project(":projector-ij-common"))
   implementation(project(":projector-util-loading"))
   implementation(project(":projector-util-logging"))

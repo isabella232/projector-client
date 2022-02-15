@@ -35,13 +35,20 @@ publishToSpace("java")
 
 setupJacoco()
 
+val intellijJcefVersion: String by project
 val intellijPlatformVersion: String by project
+val jsoupVersion: String by project
 val kotlinVersion: String by project
 
 dependencies {
+  implementation(project(":projector-common"))
   implementation(project(":projector-util-loading"))
 
+  implementation("org.jsoup:jsoup:$jsoupVersion")
+
   compileOnly("com.jetbrains.intellij.platform:core-impl:$intellijPlatformVersion")
+  compileOnly("com.jetbrains.intellij.platform:util-ui:$intellijPlatformVersion")
+  compileOnly("org.jetbrains.intellij.deps.jcef:jcef:$intellijJcefVersion")
 
   testImplementation(kotlin("test", kotlinVersion))
 }
