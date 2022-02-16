@@ -49,3 +49,7 @@ dependencies {
 
   testImplementation(kotlin("test"))
 }
+
+val test by tasks.getting(Test::class) {
+  jvmArgs("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED")
+}
